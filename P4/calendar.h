@@ -19,5 +19,8 @@ public:
   void addAppointment();
   Calendar();
 };  // class Calendar
+
+void replaceNULL(char* newStr);
+
 #endif	// CALENDAR_H 
 

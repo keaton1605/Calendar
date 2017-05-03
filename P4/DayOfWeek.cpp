@@ -26,7 +26,7 @@ void DayOfWeek::print()
     strcpy(newStr, dayName);
     strcat(newStr, ", ");
     strcat(newStr, monthName);
-    strcat(newStr, " ");    
+    strcat(newStr, " ");
     
     while(j > 0)
     {

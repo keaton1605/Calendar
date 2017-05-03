@@ -16,7 +16,7 @@ Calendar::Calendar(): days(NULL), size(30), count(0)
 void Calendar::dateSearch() const 
 {
   int day = -1, month = -1, year = -1;
-  getDate(&day, &month, &year);  
+  getDate(&day, &month, &year);
   Day dayTemp(day, month, year);
   
   for(int i = 0; i < count; i++)
@@ -24,6 +24,7 @@ void Calendar::dateSearch() const
     {
       days[i].print();
       return;
+      
     } // if found matching date
   
   cout << "That date was not found.\n";
@@ -144,6 +145,13 @@ void Calendar::subjectSearch() const
   cout << "\n";
 }  // subjectSearch()
 
+void replaceNULL(char* newStr)
+{
+    int i = strlen(newStr);
+    
+    newStr[i - 1] = '\0';
+    
+} //replaces \n with \0
 
 void Calendar::addAppointment()
 {
@@ -154,9 +162,11 @@ void Calendar::addAppointment()
     Day newDay(day, month, year);
     
     cout << "Subject >> ";
-    cin >> subject1;
+    fgets(subject1, 30, stdin);
+    replaceNULL(subject1);
     cout << "Location >> ";
-    cin >> location1;
+    fgets(location1, 30, stdin);
+    replaceNULL(location1);
     
     cout << "Start time (hh:mm) >> ";
     cin >> starTime;
@@ -170,22 +180,27 @@ void Calendar::addAppointment()
     strcat(newStr, ":00 FM,");
     strcat(newStr, endTime);
     strcat(newStr, ":00 FM,");
-    strcat(newStr, location1);    
+    strcat(newStr, location1);
     
-    int i = atoi(strtok(newStr, ":"));
+    int pos = atoi(strtok(newStr, ":"));
     
-    //cout << newStr << endl;
+    for(pos = 0; 
+      pos < count && !newDay.equal(&days[pos]); pos++);
     
-    for(i = 0; i < count && !newDay.lessThan(&days[i]); ++i)
+    if(pos == count) // not found
     {
-        cout << i << endl;
-        if (newDay.equal(&days[i])){
-            cout << "Is Equal\n";
-            days[i].read();
-            break;}
-
-    }//
+      if(count == size)
+        resize();
+      
+      for(pos = count - 1; 
+        pos >= 0 && newDay.lessThan(&days[pos]); pos--)
+          days[pos + 1] = days[pos];
+      
+      days[++pos] = newDay;  // copy the new day into pos + 1
+      count++;
+      
+    } // if not found
     
-    //days[count+1].read();
+    days[pos].read();
     
 }//

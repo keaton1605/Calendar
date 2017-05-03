@@ -17,7 +17,7 @@ bool Time::lessThan(const Time *time2) const
 
 void Time::print() const
 {
-  cout << setw(2) << setfill('0') <<  hour << ":" << setw(2) << minute 
+  cout << setw(2) << setfill('0') << right << hour << ":" << setw(2) << minute 
     << ' ' << setfill(' ');
 } // print()
 
