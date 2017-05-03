@@ -17,6 +17,7 @@ public:
   void resize();
   void subjectSearch() const;
   void addAppointment();
+  //void getCount();
   Calendar();
 };  // class Calendar
 

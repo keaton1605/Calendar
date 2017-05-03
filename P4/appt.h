@@ -9,6 +9,7 @@ class Appointment
   Time endTime;
   char *subject;
   char *location;
+  static int count;
 public:
   Appointment();    
   Appointment(const Appointment &rhs);
@@ -17,6 +18,7 @@ public:
   bool lessThan(const Appointment *appointment2) const;
   void print() const;
   void read();
+  int getCount();
 
 }; // class Appoiintmen
 #endif	// APPT_H 

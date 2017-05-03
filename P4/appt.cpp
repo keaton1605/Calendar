@@ -66,6 +66,11 @@ void Appointment::print() const
 } // print()
 
 
+/*int Appointment::getCount()
+{
+    return count;
+} //gets count*/
+
 void Appointment::read()
 {
   char *ptr;

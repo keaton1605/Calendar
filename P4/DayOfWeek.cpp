@@ -18,7 +18,7 @@ void DayOfWeek::read(int month1, int day1, int year1)
     
 }//reads the .dat file
 
-void DayOfWeek::print()
+void DayOfWeek::print() const
 {
     char str[4], newStr[50], Str[4];
     int i = 0, j = day;

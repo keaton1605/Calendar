@@ -204,3 +204,10 @@ void Calendar::addAppointment()
     days[pos].read();
     
 }//
+
+/*void Calendar::getCount()
+{
+     for(int i = 0; i < count; ++i)
+         days[i].getCount();
+     
+}*/

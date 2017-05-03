@@ -20,6 +20,7 @@ public:
   void print() const;
   void read();
   void subjectSearch(const char *subject) const;
+  //void getCount();
 
 }; // class Day
 

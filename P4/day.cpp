@@ -102,7 +102,7 @@ void Day::subjectSearch(const char *subject) const
   for(int i = 0; i < apptCount; i++)
     if(appts[i]->equal(subject))
     {
-      dayofweek.read(day, month, year);
+      dayofweek.read(month, day, year);
       dayofweek.print();
    
       appts[i]->print();
@@ -111,5 +111,11 @@ void Day::subjectSearch(const char *subject) const
       
 } // subjectSearch()
 
+/*void Day::getCount()
+{
+     for(int i = 0; i < apptCount; ++i)
+         appts[i]->getCount();
+     
+}*/
 
         

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "calendar.h"
+#include "appt.h"
 #include "DayOfWeek.h"
 using namespace std;
 
@@ -54,9 +55,9 @@ int main()
       calendar.addAppointment();
     
     else //if choice not 1, 2, or 3
-    {
-      //cout << "Bob";
-    } //whoops
+      //int newCount = int Appointment::getCount();
+    {}
+      //whoops
     
     choice = getChoice();
     
